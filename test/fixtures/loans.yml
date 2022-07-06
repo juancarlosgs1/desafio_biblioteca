@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: one
+  state_book: 1
+  borrowed: 2022-07-06 19:32:39
+  returned: 2022-07-06 19:32:39
+
+two:
+  book: two
+  state_book: 1
+  borrowed: 2022-07-06 19:32:39
+  returned: 2022-07-06 19:32:39
