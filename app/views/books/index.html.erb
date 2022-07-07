@@ -1,0 +1,40 @@
+<%= form_tag(books_path, method: "post") do %>
+     <div class="form-group">
+        <%= label_tag(:title, "Titulo") %>
+        <%= text_field_tag(:title , nil , required: true) %>
+    </div>
+    <div class="form-group">
+        <%= label_tag(:author, "Autor") %>
+        <%= text_field_tag(:author, nil , required: true) %>
+    </div>
+    <div class="form-group">
+        <%= label_tag(:genre, "Genero") %>
+        <%= text_field_tag(:genre, nil , required: true) %>
+    </div>
+
+    <%= submit_tag("Enviar") %>
+<% end %>
+
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.id %></td>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.genre %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+<% if @book.errors.any? %>
+ <div id="error_explanation">
+    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being
+    saved:</h2>
+    <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+ </div>
+<% else %>
+ <h1>Exito, Book guardado !!!! </h1>
+
+ <p>Title : <%= @book.title %></p>   
+ <p>Author : <%= @book.author %></p>   
+ <p>Genre : <%= @book.genre %></p>   
+
+ <%= link_to 'Home', books_index_path  %>
+<% end %>
