@@ -1,0 +1,20 @@
+<%= form_tag(loans_path) do  %>
+    <%= label_tag 'books', "Libros"%>
+    <%= select_tag "books", options_from_collection_for_select(@books, "id", "title") %>
+
+    <%= label_tag 'state_book', "Estado"%>
+    <select name="state_book">
+        <option value="0">En Estantante</option>
+        <option value="1">Prestado</option>
+    </select>
+    
+    <%= label_tag 'date', "Fecha"%>
+    <%= date_field_tag 'date' , Time.now.strftime("%d/%m/%Y") %>
+
+    <%= label_tag 'user_name', "Nombre"%>
+    <%= text_field_tag 'user_name' %>
+
+    <%= submit_tag("Guardar") %>
+
+<% end %>
+

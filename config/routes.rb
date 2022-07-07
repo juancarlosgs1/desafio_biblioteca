@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'loans/new'
+  resources :loans , only: [:new, :create]
   get 'books/index'
   root 'books#index'
   post 'books' , to: 'books#create'

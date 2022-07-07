@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 2022_07_06_233239) do
 
   create_table "loans", force: :cascade do |t|
     t.integer "book_id"
-    t.integer "state_book"
+    t.integer "state_book", default: 0
     t.datetime "borrowed"
     t.datetime "returned"
+    t.string "user_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_loans_on_book_id"
