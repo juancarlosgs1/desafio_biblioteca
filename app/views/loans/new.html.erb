@@ -1,15 +1,24 @@
+<% if notice.present? %>
+
+    <div class="alert alert-primary" role="alert">
+    <%= notice %>
+    </div>
+
+<% end %>
+
+
 <%= form_tag(loans_path) do  %>
     <%= label_tag 'books', "Libros"%>
     <%= select_tag "books", options_from_collection_for_select(@books, "id", "title") %>
 
     <%= label_tag 'state_book', "Estado"%>
     <select name="state_book">
-        <option value="0">En Estantante</option>
-        <option value="1">Prestado</option>
+        <option value="0">Devolucion</option>
+        <option value="1">Prestamo</option>
     </select>
     
-    <%= label_tag 'date', "Fecha"%>
-    <%= date_field_tag 'date' , Time.now.strftime("%d/%m/%Y") %>
+    <%= label_tag 'date_loans', "Fecha"%>
+    <%= datetime_field_tag 'date_loans' , Time.now.strftime("%Y-%m-%d")  %>
 
     <%= label_tag 'user_name', "Nombre"%>
     <%= text_field_tag 'user_name' %>
@@ -18,3 +27,32 @@
 
 <% end %>
 
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>State</th>
+      <th>Fecha</th>
+      <th>Persona</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.book.title %></td>
+        <td><%= loan.state_book %></td>
+
+        <% if loan.state_book == "devolucion" %>
+            <td><%= loan.returned %></td>
+        <% else %>
+            <td><%= loan.borrowed %></td>
+        <% end %>
+        
+        <td><%= loan.user_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

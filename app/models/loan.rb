@@ -1,4 +1,8 @@
 class Loan < ApplicationRecord
   belongs_to :book
-  enum state_book: [:en_estante , :prestado]
+
+  validates :state_book , presence: true
+  validates :user_name, presence: true
+
+  enum state_book: [:devolucion , :prestamo]
 end
