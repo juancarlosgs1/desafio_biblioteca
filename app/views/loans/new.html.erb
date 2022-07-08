@@ -18,7 +18,7 @@
     </select>
     
     <%= label_tag 'date_loans', "Fecha"%>
-    <%= datetime_field_tag 'date_loans' , Time.now.strftime("%Y-%m-%d")  %>
+    <%= datetime_field_tag 'date_loans', "#{Time.now.strftime("%Y-%m-%d")}T#{Time.now.strftime("%H:%M")}"%>
 
     <%= label_tag 'user_name', "Nombre"%>
     <%= text_field_tag 'user_name' %>
