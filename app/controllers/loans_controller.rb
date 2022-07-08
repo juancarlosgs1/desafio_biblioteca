@@ -28,9 +28,9 @@ class LoansController < ApplicationController
     @loan.user_name = params[:user_name]
 
     if @loan.save
-      redirect_to root_path , notice: 'Loan was successfully created'
+      redirect_to new_loan_path , notice: 'Loan was successfully created'
     else
-      redirect_to new_loan , notice: 'ERROR !!!!!!!'
+      redirect_to new_loan_path , notice: 'ERROR !!!!!!!'
     end
 
       # @loan = Loan.create(book_id: params[:books].to_i , state_book: params[:state_book],  )

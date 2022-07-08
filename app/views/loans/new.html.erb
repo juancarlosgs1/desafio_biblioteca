@@ -11,7 +11,7 @@
     <%= label_tag 'books', "Libros"%>
     <%= select_tag "books", options_from_collection_for_select(@books, "id", "title") %>
 
-    <%= label_tag 'state_book', "Estado"%>
+    <%= label_tag 'state_book', "Acción"%>
     <select name="state_book">
         <option value="0">Devolucion</option>
         <option value="1">Prestamo</option>
