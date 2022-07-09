@@ -1,0 +1,29 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>State</th>
+      <th>Fecha</th>
+      <th>Persona</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= link_to loan.book.title, book_path(loan.book) %></td>
+        <td><%= loan.state_book %></td>
+
+        <% if loan.state_book == "devolucion" %>
+            <td><%= loan.returned %></td>
+        <% else %>
+            <% if loan.borrowed.present? %>
+              <td><%= loan.borrowed %> </td>
+            <% end %>
+        <% end %>
+        
+        <td><%= loan.user_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

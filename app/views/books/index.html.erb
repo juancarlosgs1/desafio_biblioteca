@@ -25,15 +25,26 @@
 <% end %>
 
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :state_book %>
+  
+
+  <%= f.select(:state_book_eq, options_for_select({ "En Estante" => "0", "Prestado" => "1" }),{ include_blank: true }) %>
+
+  <%= f.submit %>
+<% end %>
+
+
 
 <table class="table table-dark">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Title</th>
+      <th><%= sort_link(@q, :title) %></th>
       <th>Author</th>
       <th>Genre</th>
       <th>State</th>
+      <th>Accion</th>
     </tr>
   </thead>
 
@@ -45,6 +56,7 @@
         <td><%= book.author %></td>
         <td><%= book.genre %></td>
         <td><%= book.state_book %></td>
+        <td><%= link_to 'Show', book_path(book) %></td>
       </tr>
     <% end %>
   </tbody>
