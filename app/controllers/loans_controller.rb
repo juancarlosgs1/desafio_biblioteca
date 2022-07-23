@@ -45,23 +45,12 @@ class LoansController < ApplicationController
         redirect_to new_loan_path , notice: 'ERROR !!!!!!!'
       end
     else
-      # if @loan.state_book == "prestamo"
         redirect_to new_loan_path , notice: 'No es posible realizar este registro'
-      # end
+      
     end
 
-      # @loan = Loan.create(book_id: params[:books].to_i , state_book: params[:state_book],  )
 
   end
 end
 
 
-
-# · lo que viene del formulario
-
-# Parameters: {"utf8"=>"✓", "authenticity_token"=>"eqfM5MGA19IMb39bYJtSnN67fyJltugD9gohmK2hgnwGPxPkHXZj4+mx7735WaAYD/cdUXfk6/dcyL65ZcogPw==", "books"=>"54", "state_book"=>"1", "date_loans"=>"2022-07-07T18:52", "user_name"=>"Juan", "commit"=>"Guardar"}
-
-# [:devolucion , :prestamo]
-
-# t.datetime "borrowed"
-# t.datetime "returned"
